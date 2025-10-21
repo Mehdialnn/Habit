@@ -38,8 +38,8 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
+      <StatusBar style="light" />
       <NavigationContainer>
-        <StatusBar style="light" />
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
