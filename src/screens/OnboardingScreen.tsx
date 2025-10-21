@@ -216,8 +216,8 @@ const OnboardingScreen: React.FC = () => {
         data={slides}
         renderItem={renderSlide}
         keyExtractor={(item) => item.id.toString()}
-        horizontal
-        pagingEnabled
+        horizontal={true}
+        pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
         onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
