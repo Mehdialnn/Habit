@@ -17,6 +17,15 @@ export default function App() {
   const loadFromStorage = useHabitStore((state) => state.loadFromStorage);
   const initializeWithMockData = useHabitStore((state) => state.initializeWithMockData);
 
+  console.log('DEBUG Types:', {
+    isLoading: typeof isLoading,
+    isLoadingValue: isLoading,
+    hasCompletedOnboarding: typeof hasCompletedOnboarding,
+    hasCompletedOnboardingValue: hasCompletedOnboarding,
+    loadFromStorage: typeof loadFromStorage,
+    initializeWithMockData: typeof initializeWithMockData,
+  });
+
   useEffect(() => {
     const initialize = async () => {
       try {
