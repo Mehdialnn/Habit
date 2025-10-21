@@ -226,7 +226,7 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
         set({
           habits: parsed.habits || [],
           protocols: parsed.protocols || [],
-          hasCompletedOnboarding: parsed.hasCompletedOnboarding || false,
+          hasCompletedOnboarding: Boolean(parsed.hasCompletedOnboarding),
         });
       }
     } catch (error) {
