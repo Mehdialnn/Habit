@@ -20,8 +20,8 @@ const TodayScreen: React.FC = () => {
   const activeTimer = useHabitStore((state) => state.activeTimer);
   const toggleHabitCompletion = useHabitStore((state) => state.toggleHabitCompletion);
   const stopTimer = useHabitStore((state) => state.stopTimer);
-  const [timeRemaining, setTimeRemaining] = useState(0);
-  const [showAddHabit, setShowAddHabit] = useState(false);
+  const [timeRemaining, setTimeRemaining] = useState<number>(0);
+  const [showAddHabit, setShowAddHabit] = useState<boolean>(false);
 
   useEffect(() => {
     if (activeTimer && activeTimer.isActive) {

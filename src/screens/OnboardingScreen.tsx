@@ -25,7 +25,7 @@ interface OnboardingSlideData {
 }
 
 const OnboardingScreen: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const setOnboardingComplete = useHabitStore((state) => state.setOnboardingComplete);
   const flatListRef = useRef<FlatList>(null);
 

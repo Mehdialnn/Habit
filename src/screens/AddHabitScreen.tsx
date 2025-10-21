@@ -32,13 +32,13 @@ const typeOptions: { value: HabitType; label: string }[] = [
 ];
 
 const AddHabitScreen: React.FC<AddHabitScreenProps> = ({ onClose }) => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const [category, setCategory] = useState<HabitCategory>('exercise');
   const [type, setType] = useState<HabitType>('boolean');
-  const [icon, setIcon] = useState('💪');
-  const [target, setTarget] = useState('');
-  const [unit, setUnit] = useState('');
+  const [icon, setIcon] = useState<string>('💪');
+  const [target, setTarget] = useState<string>('');
+  const [unit, setUnit] = useState<string>('');
 
   const addHabit = useHabitStore((state) => state.addHabit);
 

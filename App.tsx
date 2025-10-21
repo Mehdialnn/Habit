@@ -11,26 +11,30 @@ import { Colors } from './src/constants/theme';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const hasCompletedOnboarding = useHabitStore((state) => state.hasCompletedOnboarding);
   const loadFromStorage = useHabitStore((state) => state.loadFromStorage);
   const initializeWithMockData = useHabitStore((state) => state.initializeWithMockData);
 
   useEffect(() => {
     const initialize = async () => {
-      await loadFromStorage();
+      try {
+        await loadFromStorage();
 
-      // Initialize with mock data if no habits exist (for demo purposes)
-      const habits = useHabitStore.getState().habits;
-      if (habits.length === 0) {
-        initializeWithMockData();
+        // Initialize with mock data if no habits exist (for demo purposes)
+        const habits = useHabitStore.getState().habits;
+        if (habits.length === 0) {
+          initializeWithMockData();
+        }
+      } catch (error) {
+        console.error('Failed to initialize app:', error);
+      } finally {
+        setIsLoading(false);
       }
-
-      setIsLoading(false);
     };
 
     initialize();
-  }, []);
+  }, [loadFromStorage, initializeWithMockData]);
 
   if (isLoading) {
     return null; // Or a loading screen
